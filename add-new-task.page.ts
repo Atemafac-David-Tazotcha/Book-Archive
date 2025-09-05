@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TodoService } from 'src/app/todo';
 interface Task {
-  itemName: string;
+  itemName: '';
   itemDueDate: string;
   itemPriority: string;
   itemCategory: string;
@@ -56,3 +56,4 @@ export class AddNewTaskPage implements OnInit {
     this.dismiss(this.taskObject);
   }
 }
+
