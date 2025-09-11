@@ -1,0 +1,11 @@
+<header class="header">
+  <div class="tabs">
+    <button [class.active]="selected === 'books'" (click)="select('books')">BOOKS</button>
+    <button [class.active]="selected === 'all'" (click)="select('all')">ALL</button>
+    <button [class.active]="selected === 'latest'" (click)="select('latest')">LATEST</button>
+  </div>
+
+  <div class="search">
+    <input type="text" placeholder="Search..." (input)="onSearch($event)" />
+  </div>
+</header>

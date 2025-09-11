@@ -1,0 +1,7 @@
+<article class="card">
+  <img [src]="book.coverUrl" alt="{{ book.title }}" loading="lazy" />
+  <div class="meta">
+    <h3>{{ book.title }}</h3>
+    <p *ngIf="book.subtitle" class="subtitle">{{ book.subtitle }}</p>
+  </div>
+</article>

@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 6px;
+
+  button {
+    border: none;
+    background: blue;
+    font-weight: 600;
+    color: #777;
+    cursor: pointer;
+
+    &.active {
+      color: #2196f3;
+      border-bottom: 2px solid #2196f3;
+    }
+  }
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 95%;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="page">
+  <app-header (tabChange)="onTabChange($event)" (search)="onSearch($event)"></app-header>
+
+  <section *ngFor="let group of groupedBooks">
+    <div class="section-header">
+      <h2>{{ group.category }}</h2>
+      <a href="#">More...</a>
+    </div>
+
+    <div class="book-grid">
+      <app-book-card *ngFor="let book of group.books" [book]="book"></app-book-card>
+    </div>
+  </section>
+
+  <app-bottom-nav></app-bottom-nav>
+</div>
