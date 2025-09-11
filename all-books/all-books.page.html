@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>All Books</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="books-container">
+    <ion-card *ngFor="let book of allBooks" (click)="openBookDetail(book)">
+      <img [src]="book.image" alt="{{book.title}} cover"/>
+      <ion-card-content>
+        <h3>{{book.title}}</h3>
+        <p>By {{book.author}}</p>
+        <p class="category">{{book.category}}</p>
+        <p class="year">Published: {{book.publicationDate | date:'yyyy'}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<!-- Bottom Tabs -->
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="saved">
+      <ion-icon name="bookmark-outline"></ion-icon>
+      <ion-label>Saved Book</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="transactions">
+      <ion-icon name="receipt-outline"></ion-icon>
+      <ion-label>Transactions</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->
