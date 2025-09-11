@@ -1,0 +1,287 @@
+/* Advanced segment styling with smooth transitions */
+ion-segment {
+  padding: 0 10px;
+  --background: transparent;
+  position: relative;
+}
+
+ion-segment-button {
+  --color: #666;
+  --color-checked: #3880ff;
+  --indicator-color: transparent; /* Hide default indicator */
+  --background: transparent;
+  --background-checked: transparent;
+  min-height: 40px;
+  transition: color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  ion-label {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Add this to your existing home.page.scss */
+.add-book-segment {
+  --color: #3880ff; /* Blue color */
+  --color-checked: #3880ff; /* Blue color when selected */
+  --indicator-color: #3880ff; /* Blue indicator */
+  
+  ion-icon {
+    margin-left: 4px;
+    font-size: 16px;
+  }
+}
+
+/* Ensure the segment button has proper spacing */
+ion-segment-button {
+  ion-label {
+    margin-right: 4px;
+  }
+  
+  ion-icon {
+    margin-left: 4px;
+  }
+}
+
+/* Custom white indicator with animation */
+ion-segment-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0;
+}
+
+ion-segment-button.segment-button-checked::before {
+  width: 70%;
+  opacity: 1;
+}
+
+/* Blue background indicator (optional) */
+ion-segment-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #3880ff;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+ion-segment-button.segment-button-checked::after {
+  transform: scaleX(1);
+}
+
+/* Hover effects */
+ion-segment-button:hover {
+  --color: #3880ff;
+}
+
+ion-segment-button:hover::before {
+  width: 40%;
+  opacity: 0.7;
+}
+
+/* Search bar styling */
+ion-searchbar {
+  .searchbar-input-container {
+    input {
+      background: #f5f5f5 !important;
+      border-radius: 20px;
+      box-shadow: none !important;
+    }
+  }
+}
+
+/* High School section header - FIXED VISIBILITY */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3880ff; /* Blue color like More button */
+  margin: 0;
+}
+
+.more-button {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Horizontal scroll styling */
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 5px 0 15px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll {
+  display: flex;
+  gap: 12px;
+  padding: 0 15px;
+  width: max-content;
+}
+
+.horizontal-scroll ion-card {
+  width: 140px;
+  margin: 0;
+  flex-shrink: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.horizontal-scroll ion-card img {
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.horizontal-scroll ion-card-content {
+  padding: 10px;
+  
+  h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+    line-height: 1.2;
+    color: #000;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 11px;
+    color: #666;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+/* Details button container */
+.details-button-container {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+.details-button-container ion-button {
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  margin: 0;
+  height: 24px;
+  font-size: 10px;
+  font-weight: 500;
+  
+  ion-icon {
+    font-size: 12px;
+    margin-left: 2px;
+    transition: transform 0.2s ease;
+  }
+  
+  &:active {
+    --color: #2c5cc5;
+    
+    ion-icon {
+      transform: translateX(2px);
+    }
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Bottom tabs styling */
+ion-tab-bar {
+  --background: #ffffff;
+  --border: 1px solid #e0e0e0;
+  padding: 5px 0;
+  
+  ion-tab-button {
+    --color: #7f8c8d;
+    --color-selected: #3880ff;
+    
+    ion-icon {
+      font-size: 20px;
+    }
+    
+    ion-label {
+      font-size: 10px;
+      margin-top: 3px;
+    }
+  }
+}
+
+/* Fix layout issues */
+ion-content {
+  --overflow: auto;
+}
+
+ion-toolbar {
+  padding: 0;
+}
+
+/* Add this to your home.page.scss */
+.clickable-title, .clickable-author {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.clickable-title:hover, .clickable-author:hover {
+  color: #3880ff;
+}
+
+.clickable-title:active, .clickable-author:active {
+  color: #2c5cc5;
+  transform: scale(0.98);
+}
+
+/* Style for the Add Book segment button */
+.add-book-segment {
+  --color: #3880ff;
+  --color-checked: #3880ff;
+  
+  ion-icon {
+    margin-right: 6px;
+    font-size: 18px;
+  }
+  
+  ion-label {
+    margin-left: 2px;
+    white-space: nowrap;
+  }
+}

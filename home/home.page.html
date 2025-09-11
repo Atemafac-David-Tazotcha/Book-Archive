@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Add [value] binding to sync with selectedSegment -->
+    <ion-segment [value]="selectedSegment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="booksForU">
+        <ion-label>Books</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="all">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="latest">
+        <ion-label>Latest</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-buttons slot="end">
+      <!-- Add Book Button -->
+      <ion-button (click)="goToAddBookPage()" class="add-book-button">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+      
+      <!-- Search Icon -->
+      <ion-button (click)="toggleSearch()">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Search Bar -->
+  <ion-toolbar *ngIf="searchVisible">
+    <ion-searchbar placeholder="Search Book, Author"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ... rest of your home page content ... -->
+
+<ion-content>
+  <!-- High School Section -->
+  <div class="section-header">
+    <h2 class="section-title">High School</h2>
+    <ion-button fill="clear" size="small" color="primary" class="more-button">More...</ion-button>
+  </div>
+
+  <div class="scroll-container">
+    <div class="horizontal-scroll">
+      <ion-card *ngFor="let book of highSchoolBooks">
+        <img [src]="book.image" alt="{{book.title}} cover"/>
+        <ion-card-content>
+          <h3 class="clickable-title">{{book.title}}</h3>
+          <p class="clickable-author">By {{book.author}}</p>
+          <div class="details-button-container">
+            <ion-button fill="clear" size="small" color="primary" (click)="openBookDetail(book)">
+              View Details
+              <ion-icon name="arrow-forward" slot="end"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- First Cycle Section -->
+  <div class="section-header">
+    <h2 class="section-title">First Cycle</h2>
+    <ion-button fill="clear" size="small" color="primary" class="more-button">More...</ion-button>
+  </div>
+
+  <div class="scroll-container">
+    <div class="horizontal-scroll">
+      <ion-card *ngFor="let book of firstcyclebooks">
+        <img [src]="book.image" alt="{{book.title}} cover"/>
+        <ion-card-content>
+          <h3 class="clickable-title">{{book.title}}</h3>
+          <p class="clickable-author">By {{book.author}}</p>
+          <div class="details-button-container">
+            <ion-button fill="clear" size="small" color="primary" (click)="openBookDetail(book)">
+              View Details
+              <ion-icon name="arrow-forward" slot="end"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- Primary School Section -->
+  <div class="section-header">
+    <h2 class="section-title">Primary School</h2>
+    <ion-button fill="clear" size="small" color="primary" class="more-button">More...</ion-button>
+  </div>
+
+  <div class="scroll-container">
+    <div class="horizontal-scroll">
+      <ion-card *ngFor="let book of primaryschoolbooks">
+        <img [src]="book.image" alt="{{book.title}} cover"/>
+        <ion-card-content>
+          <h3 class="clickable-title">{{book.title}}</h3>
+          <p class="clickable-author">By {{book.author}}</p>
+          <div class="details-button-container">
+            <ion-button fill="clear" size="small" color="primary" (click)="openBookDetail(book)">
+              View Details
+              <ion-icon name="arrow-forward" slot="end"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
+
+<!-- Bottom Tabs
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="saved">
+      <ion-icon name="bookmark-outline"></ion-icon>
+      <ion-label>Saved Book</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="transactions">
+      <ion-icon name="receipt-outline"></ion-icon>
+      <ion-label>Transactions</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->
