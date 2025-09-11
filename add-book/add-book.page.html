@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Book</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="bookForm" (ngSubmit)="addBook()" class="form-container">
+    
+    <!-- Book Title -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">Book Title *</ion-label>
+      <ion-input formControlName="title" type="text" required class="form-input"></ion-input>
+    </ion-item>
+
+    <!-- Author -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">Author *</ion-label>
+      <ion-input formControlName="author" type="text" required class="form-input"></ion-input>
+    </ion-item>
+
+    <!-- Book Image -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">Book Cover Image URL</ion-label>
+      <ion-input formControlName="image" type="text" placeholder="assets/images/book-cover.jpg" class="form-input"></ion-input>
+    </ion-item>
+
+    <!-- School Category -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">School Category *</ion-label>
+      <ion-select formControlName="classLevel" interface="popover" class="form-select">
+        <ion-select-option value="high-school">High School</ion-select-option>
+        <ion-select-option value="first-cycle">First Cycle</ion-select-option>
+        <ion-select-option value="primary">Primary School</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Publication Date - Side by side layout -->
+    <div class="row-container">
+      <ion-item class="form-item half-width">
+        <ion-label position="stacked" class="form-label">Published Date</ion-label>
+      </ion-item>
+      <ion-item class="form-item half-width">
+        <ion-datetime formControlName="publicationDate" presentation="date" class="form-datetime"></ion-datetime>
+      </ion-item>
+    </div>
+
+    <!-- Price per Carton -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">Price per Carton (CFA) *</ion-label>
+      <ion-input formControlName="pricePerCarton" type="number" required class="form-input"></ion-input>
+    </ion-item>
+
+    <!-- Quantity of Cartons -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">Quantity of Cartons *</ion-label>
+      <ion-input formControlName="quantity" type="number" required class="form-input"></ion-input>
+    </ion-item>
+
+    <!-- Book Information -->
+    <ion-item class="form-item">
+      <ion-label position="stacked" class="form-label">Book Information/Summary</ion-label>
+      <ion-textarea formControlName="bookInfo" rows="4" placeholder="Brief summary about the book and author..." class="form-textarea"></ion-textarea>
+    </ion-item>
+
+    <!-- Submit Button -->
+    <ion-button type="submit" expand="block" class="submit-btn" [disabled]="!bookForm.valid">
+      Add Book to System
+    </ion-button>
+
+  </form>
+</ion-content>
